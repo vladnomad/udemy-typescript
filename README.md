@@ -15,7 +15,7 @@ courseDetails {
 ```
 This course, authored by Ivan Petrichenko, offers an in-depth exploration of TypeScript, coupled with practical applications. Throughout the course, each theoretical concept is followed by a hands-on test or practice task, fostering interactive web development skills. The curriculum is divided into four main modules:
 
-### ![0%](https://geps.dev/progress/0) I. Foundations 
+### ![5%](https://geps.dev/progress/5) I. Foundations 
 
 ### ![0%](https://geps.dev/progress/0) II. Generics & type manipulations
 
@@ -37,19 +37,23 @@ async function exploreCourse(): Promise<[Foundations, AdvancedTechniques, RealWo
 
         return [foundations, advancedTechniques, realWorldProjects]
     } catch (error) {
-        throw new Error(`Error: Ensure a solid grasp of TypeScript foundations before advancing further`)
+        throw new Error(`Error: Grasp of TypeScript foundations before advancing further`)
     }
 }
 
 // Apply TypeScript in Real-World Projects
-type ProjectType = "Large-Scale Applications" | "Team Collaborations" | "Complex Functionalities"
+type ProjectType = "Large-Scale Apps" | "Team Collaborations" | "Complex Functionalities"
 
-const realWorldProjects: Array<ProjectType> = ["Large-Scale Applications", "Team Collaborations", "Complex Functionalities"]
+const realWorldProjects: Array<ProjectType> = [
+    "Large-Scale Applications", 
+    "Team Collaborations", 
+    "Complex Functionalities"
+]
 
 function implementProject(project: ProjectType): string {
     switch (project) {
-        case "Large-Scale Applications":
-            return `Implementing scalable TypeScript architecture for high-traffic applications.`
+        case "Large-Scale Apps":
+            return `Implementing scalable TypeScript architecture for high-traffic apps.`
         case "Team Collaborations":
             return `Utilizing TypeScript interfaces for effective team collaboration.`
         case "Complex Functionalities":
