@@ -35,11 +35,19 @@ function logBirthdayMessage (
     return undefined
 }
  */
+const userData = '{"isBirthdayData": true, "ageData": 40, "userNameData": "River"}'
+
+const userObject: {
+    isBirthdayData: boolean, 
+    ageData: number, 
+    userNameData: string
+} = JSON.parse(userData)
+console.log(userObject)
 
 const logBirthdayMessage = (
     isBirthday: boolean, 
-    userName: string, 
-    age: number
+    age: number,
+    userName: string
 ): string => {
     if (isBirthday) {
         return `Congrats, ${userName.toUpperCase()}! You have turned ${age + 1} years old today!`
@@ -48,4 +56,7 @@ const logBirthdayMessage = (
     }
 }
 
-logBirthdayMessage(isBirthdayData, userNameData, ageData)
+logBirthdayMessage(isBirthdayData, ageData, userNameData)
+
+let salary: number
+salary = 9000

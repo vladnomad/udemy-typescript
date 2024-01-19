@@ -30,7 +30,10 @@ function logBirthdayMessage (
     return undefined
 }
  */
-var logBirthdayMessage = function (isBirthday, userName, age) {
+var userData = '{"isBirthdayData": true, "ageData": 40, "userNameData": "River"}';
+var userObject = JSON.parse(userData);
+console.log(userObject);
+var logBirthdayMessage = function (isBirthday, age, userName) {
     if (isBirthday) {
         return "Congrats, ".concat(userName.toUpperCase(), "! You have turned ").concat(age + 1, " years old today!");
     }
@@ -38,4 +41,6 @@ var logBirthdayMessage = function (isBirthday, userName, age) {
         return "Error";
     }
 };
-logBirthdayMessage(isBirthdayData, userNameData, ageData);
+logBirthdayMessage(isBirthdayData, ageData, userNameData);
+var salary;
+salary = 9000;
