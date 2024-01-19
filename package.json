@@ -4,9 +4,9 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-      "update": "node up.js"
+        "update": "node up.js"
     },
-    "dependencies": {
+    "devDependencies": {
+        "tsx": "^4.7.0"
     }
-  }
-  
+}
