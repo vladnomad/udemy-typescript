@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
+    // tsc index.ts
+
     // ts-node --esm index.ts
     // npx tsx index.js
+    
 
     /* Visit https://aka.ms/tsconfig to read more about this file */
 

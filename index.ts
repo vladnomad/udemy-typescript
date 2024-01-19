@@ -18,12 +18,34 @@ if (isBirthday) {
 }
  */
 
-const isBirthday: boolean = true
-let age: number
-const userName: string = "River"
+const isBirthdayData: boolean = true
+const ageData: number = 40
+const userNameData: string = "River"
 
-age = 40
+/* 
+function logBirthdayMessage (
+    isBirthday: boolean, 
+    userName: string, 
+    age: number
+): void {
+    if (isBirthday) {
+        console.log(`Congrats, ${userName.toUpperCase()}! You have turned ${age + 1} years old today!`)
+    }
 
-if (isBirthday) {
-    console.log(`Congrats, ${userName.toUpperCase()}! You have turned ${age + 1} years old today!`)
+    return undefined
 }
+ */
+
+const logBirthdayMessage = (
+    isBirthday: boolean, 
+    userName: string, 
+    age: number
+): string => {
+    if (isBirthday) {
+        return `Congrats, ${userName.toUpperCase()}! You have turned ${age + 1} years old today!`
+    } else {
+        return "Error"
+    }
+}
+
+logBirthdayMessage(isBirthdayData, userNameData, ageData)
