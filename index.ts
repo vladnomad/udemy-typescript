@@ -1,21 +1,23 @@
-const currencyRate: string = "1.05"
+const isBirthdayData: boolean = true
+const userNameData: string = "River"
 
-const fetchCurrency = (response: string): number => {
-	const data: number = JSON.parse(response)
-	return data
+let ageData: number = 40
+
+const createError = (message: string): never => {
+	throw new Error(message)
 }
 
-function transferEurToUsd(
-    available: boolean, 
-    amount: number, 
-    commission: number
-): void {
-	if (available) {
-		let res: number = fetchCurrency(currencyRate) * amount * commission
-		console.log(res)
-	} else {
-		console.log("Сейчас обмен недоступен")
-	}
+function logBirthdayMessage (
+    isBirthday: boolean, 
+    userName: string,
+    age: number
+): string {
+    if (isBirthday) {
+        return `Congrats, ${userName.toUpperCase()}! You have turned ${age + 1} years old today!`
+    } else if (!isBirthday) {
+        return "Too bad"
+    }
+	return createError("Error")
 }
 
-transferEurToUsd(true, 500, 1.05)
+logBirthdayMessage(isBirthdayData, userNameData, ageData)
