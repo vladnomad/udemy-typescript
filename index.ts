@@ -1,46 +1,53 @@
-const isBirthdayData: boolean = true
-const userNameData: string = "River"
+const userData = {
+    userName: "River",
+    age: 40,
+    isBirthday: true,
+    messages: {
+        error: "Not today!",
+        success: "Congrats,"
+    }
+}
 
-let ageData: number = 40
-
-const createError = (message: string): never => {
+const createError = (message: string) => {
 	throw new Error(message)
 }
 
-function logBirthdayMessage (
+function logBirthdayMessage ({
+    isBirthday, 
+    userName, 
+    age, 
+    messages: { 
+        error, 
+        success 
+}}: {
     isBirthday: boolean, 
     userName: string,
-    age: number
-): string {
+    age: number,
+    messages: { 
+        error:string, 
+        success:string 
+}}): string {
     if (isBirthday) {
-        return `Congrats, ${userName.toUpperCase()}! You have turned ${age + 1} years old today!`
-    } else if (!isBirthday) {
-        return "Too bad"
-    }
-	return createError("Error")
-}
-
-logBirthdayMessage(isBirthdayData, userNameData, ageData)
-
-
-const test: null = null
-const test2: any = null
-// const test3: string = null
-// const test4: number = null 
-
-const test5: undefined = undefined
-const test6: any = undefined
-// const test7: string = undefined
-
-let smth: any
-
-function getRndData() {
-    if (Math.random() < 0.5) {
-        return null
+        return `${success} ${userName.toUpperCase()}! You have turned ${age + 1} years old today!`
     } else {
-        return "   Some data   "
+        return createError(error)
     }
 }
 
-const data = getRndData()
-const trimmedData = data ? data.trim() : null
+console.log(logBirthdayMessage(userData))
+
+const departments: string[] = ["dev", "design", "marketing"]
+const department = departments[0]
+
+// departments.push(5)
+
+const report = departments
+.filter((d: string) => d !== "dev")
+// .map((d: string) => { return 4 })
+.map((d: string) => `${d} - done`)
+
+
+const numbers: number[][] = [[3, 5, 6], [3, 5, 6]]
+
+const [first] = report
+console.log(first)
