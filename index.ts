@@ -8,6 +8,15 @@ const userData = {
     }
 }
 
+const userDataTuple: [...boolean[], number, string] = [true, 37, "Jane"]
+// userDataTuple[3]
+// userDataTuple.push(50)
+// userDataTuple[3]
+
+const res = userDataTuple.map(t => `${t} - data`)
+
+const [isBirthday, age, userName] = userDataTuple
+
 const createError = (message: string) => {
 	throw new Error(message)
 }
