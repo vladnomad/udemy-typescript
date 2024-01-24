@@ -1,4 +1,4 @@
-const userData = {
+/* const userData = {
     userName: "River",
     age: 40,
     isBirthday: true,
@@ -63,7 +63,7 @@ console.log(first)
 
 const message: string | number | boolean = 5
 const messages: string[] | number[] = ["a", "b"]
-/* 
+
 function printMessage (msg: string | number | boolean): void {
     if (typeof msg === "string" || typeof msg === "number") {
         console.log(msg.toLowerCase())
@@ -73,7 +73,7 @@ function printMessage (msg: string | number | boolean): void {
 
     console.log(msg)
 }
- */
+
 function printMessage (msg: string[] | number | boolean): void {
     if (Array.isArray(msg)) {
         msg.forEach(m => console.log(m))
@@ -118,55 +118,80 @@ function logValue(x: string | Date) {
 let mssg: "Hello" = "Hello"
 
 // mssg = "Hell"
+ */
 type Server = { 
     protocol: "http" | "https"; 
-    port: 3000 | 3001 
+    port: 3000 | 3001 ;
+    log: (msg: string) => void
 }
 
+interface IServer {
+    protocol: "http" | "https"; 
+    port: 3000 | 3001;
+}
+
+interface Role {
+    role: string;
+}
+
+interface ServerWithRole extends Server, Role {}/*{  test: string  }*/
+/* 
 type Role = { role: string }
 
-type ConfigWithRole = Server & Role
-
+type ServerWithRole = Server & Role
+*/
 type StartFunction = (
     protocol: "http" | "https", 
-    port: 3000 | 3001
+    port: 3000 | 3001,
+    log: (msg: string) => void
 ) => string
-
-const serverConfig: ConfigWithRole = {
+    
+// const configServer: ServerWithRole = {
+const configServer: ServerWithRole = {
     protocol: "https",
     port: 3001,
-    role: "admin"
+    role: "admin",
+    log: (msg: string): void => {
+        console.log(msg)
+    }
 }
-
-const backupConfig: ConfigWithRole = {
+/* 
+const backupServer: ServerWithRole = {
     protocol: "http",
     port: 3000,
     role: "user"
 }
-
+ */
 const port3000: number = 3000
 const port3001: number = 3001
 
-const startServer: (
-    protocol: "http" | "https",
-    port: 3000 | 3001
-) => string = (
+const startServer: StartFunction = (
     protocol: "http" | "https", 
-    port: 3000 | 3001
+    port: 3000 | 3001,
+    log: (msg: string) => void
 ): "Server has started" => {
-    
     if (port === port3000 || port === port3001) {
-        console.log(`Server has started on ${protocol}://server:${port}`)
+        log(`Server has started on ${protocol}://server:${port}`)
     } else {
         console.error("Invalid port")
     }
     return "Server has started"
 }
 
-startServer("https", 3001)
-startServer(serverConfig.protocol, serverConfig.port)
+// startServer("https", 3001)
+startServer(configServer.protocol, configServer.port, configServer.log)
 
+interface Styles {
+    [key: string]: string;
+}
+
+const styles: Styles = {
+    position: "absolute",
+    inset: ".5rem 1rem"
+}
+/* 
 type ID = string | number
+
 type AnimationTimingFunc = "ease" | "ease-out" | "ease-in" | "ease-in-out"
 
 function createAnimation(
@@ -184,4 +209,4 @@ function createAnimation(
     // console.log(`${animation} ${timingFunc} ${duration}s ${iterationCount}`)
 }
 
-createAnimation("id", "fade", "ease-in-out", 5, "infinite")
+createAnimation("id", "fade", "ease-in-out", 5, "infinite") */
