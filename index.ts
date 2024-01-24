@@ -114,3 +114,38 @@ function logValue(x: string | Date) {
         console.log(x.trim())
     }
 }
+
+let mssg: "Hello" = "Hello"
+
+// mssg = "Hell"
+
+const port3000: number = 3000
+const port3001: number = 3001
+
+function startServer(protocol: "http" | "https", port: 3000 | 3001): "Server has started" {
+    if (port === port3000 || port === port3001) {
+        console.log(`Server has started on ${protocol}://server:${port}`)
+    } else {
+        console.error("Invalid port")
+    }
+    return "Server has started"
+}
+
+startServer("https", 3001)
+
+function createAnimation(
+    id: string | number, 
+    animation: string, 
+    timingFunc: "ease" | "ease-out" | "ease-in" | "ease-in-out" = "ease", 
+    duration: number, 
+    iterationCount: "infinite" | number
+): void {
+    const element = document.querySelector(`#${id}`) as HTMLElement
+
+    if (element) {
+        element.style.animation = `${animation} ${timingFunc} ${duration} ${iterationCount}`
+    }
+    // console.log(`${animation} ${timingFunc} ${duration}s ${iterationCount}`)
+}
+
+createAnimation("id", "fade", "ease-in-out", 5, "infinite")
