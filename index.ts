@@ -119,10 +119,26 @@ let mssg: "Hello" = "Hello"
 
 // mssg = "Hell"
 
+const serverConfig: {
+    protocol: "http" | "https"; 
+    port: 3000 | 3001;
+    start: () => {}
+} = {
+    protocol: "https",
+    port: 3001
+}
+
 const port3000: number = 3000
 const port3001: number = 3001
 
-function startServer(protocol: "http" | "https", port: 3000 | 3001): "Server has started" {
+const startServer: (
+    protocol: "http" | "https",
+    port: 3000 | 3001
+) => string = (
+    protocol: "http" | "https", 
+    port: 3000 | 3001
+): "Server has started" => {
+    
     if (port === port3000 || port === port3001) {
         console.log(`Server has started on ${protocol}://server:${port}`)
     } else {
@@ -132,11 +148,15 @@ function startServer(protocol: "http" | "https", port: 3000 | 3001): "Server has
 }
 
 startServer("https", 3001)
+startServer(serverConfig.protocol, serverConfig.port)
+
+type ID = string | number
+type AnimationTimingFunc = "ease" | "ease-out" | "ease-in" | "ease-in-out"
 
 function createAnimation(
-    id: string | number, 
+    id: ID, 
     animation: string, 
-    timingFunc: "ease" | "ease-out" | "ease-in" | "ease-in-out" = "ease", 
+    timingFunc: AnimationTimingFunc = "ease", 
     duration: number, 
     iterationCount: "infinite" | number
 ): void {
