@@ -60,3 +60,14 @@ const numbers: number[][] = [[3, 5, 6], [3, 5, 6]]
 
 const [first] = report
 console.log(first)
+
+const message: string | number | boolean = 5
+const messages: string[] | number[] = ["a", "b"]
+
+function printMessage (msg: string | number): void {
+    console.log(msg)
+    // console.log(msg.toLowerCase())
+}
+
+printMessage(4)
+printMessage("some string")
