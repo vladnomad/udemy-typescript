@@ -118,14 +118,30 @@ function logValue(x: string | Date) {
 let mssg: "Hello" = "Hello"
 
 // mssg = "Hell"
-
-const serverConfig: {
+type Server = { 
     protocol: "http" | "https"; 
-    port: 3000 | 3001;
-    start: () => {}
-} = {
+    port: 3000 | 3001 
+}
+
+type Role = { role: string }
+
+type ConfigWithRole = Server & Role
+
+type StartFunction = (
+    protocol: "http" | "https", 
+    port: 3000 | 3001
+) => string
+
+const serverConfig: ConfigWithRole = {
     protocol: "https",
-    port: 3001
+    port: 3001,
+    role: "admin"
+}
+
+const backupConfig: ConfigWithRole = {
+    protocol: "http",
+    port: 3000,
+    role: "user"
 }
 
 const port3000: number = 3000
