@@ -1,12 +1,10 @@
 {
-    "type": "module",
     "name": "your-package-name",
     "version": "1.0.0",
     "main": "index.js",
-    "scripts": {
-        "update": "node up.js"
-    },
+    "scripts": {},
     "devDependencies": {
+        "@types/node": "^20.11.7",
         "tsx": "^4.7.0"
     }
 }
