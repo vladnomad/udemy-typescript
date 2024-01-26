@@ -1,13 +1,47 @@
+/**
+ * Automating course progress update with a terminal command.
+ *
+ * @remarks
+ * To run the script from the terminal, use:
+ * ```
+ * ts-node <filename> <lecture> <module>
+ * ```
+ * Replace `<lecture>` and `<module>` with the appropriate values.
+ *
+ * - `<lecture>`: An integer representing the last finished lecture.
+ * - `<module>`: Lowercase Roman numeral (from 'i' to 'iv').
+ */
+
 import { promises as fs } from "fs"
 
+/**
+ * Regular expression type.
+ */
 type Regex = RegExp
 
+/**
+ * Module type.
+ */
 type Module = {
+    /**
+     * Label for the module.
+     */
     label: string;
+
+    /**
+     * Start index of the module.
+     */
     start: number;
+
+    /**
+     * Finish index of the module.
+     */
     finish: number;
 }
 
+/**
+ * Roman numerals enumeration.
+ */
 enum RomanNumeral {
     I = "i",
     II = "ii",
@@ -15,6 +49,14 @@ enum RomanNumeral {
     IV = "iv"
 }
 
+/**
+ * Calculate progress percentage.
+ *
+ * @param start - Start index.
+ * @param current - Current index.
+ * @param finish - Finish index.
+ * @returns Calculated progress percentage (multiple of 5).
+ */
 const calculateProgress = (
     start: number, 
     current: number, 
@@ -28,6 +70,13 @@ const calculateProgress = (
     return progress
 }
 
+/**
+ * Update progress in README file.
+ *
+ * @param lecture - Last finished lecture.
+ * @param module - Module details.
+ * @returns A Promise that resolves when the progress is updated.
+ */
 const updateReadmeProgress = async (
     lecture: number, 
     module: Module
@@ -54,10 +103,29 @@ const updateReadmeProgress = async (
     }
 }
 
+/**
+ * Check if the given lecture is within a valid range for the specified module.
+ *
+ * @param lecture - The lecture to check.
+ * @param module - The module details.
+ * @returns True if the lecture is within the valid range, otherwise false.
+ */
 const isValidLecture = (lecture: number, module: Module): boolean => {
     return lecture >= module.start && lecture <= module.finish;
 }
 
+/**
+ * Main function.
+ *
+ * @remarks
+ * This function extracts and validates command-line arguments.
+ * @example
+ * ```
+ * const modules: Readonly<{ [key: string]: Module }> = { ... }
+ * const [, , ...args] = process.argv
+ * main()
+ * ```
+ */
 const main = async () => {
     try {
         const modules: Readonly<{ [key: string]: Module }> = {
