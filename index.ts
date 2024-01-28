@@ -72,12 +72,12 @@ const userObj = JSON.parse(userData)
 
 
 interface User {
-	login: string;
+	readonly login: string;
 	password: string;
 	age: number;
 	// address?: string;
 	address: string | undefined;
-	parents?: {
+	readonly parents?: {
 		mother?: string;
 		father?: string;
 	}
@@ -90,8 +90,39 @@ const user: User = {
 	address: ""
 }
 
-const dbName = "01"
+const userReadonly: Readonly<User> = {
+	login: "",
+	password: "",
+	age: 0,
+	address: ""
+}
+
+user.login = "str"
+
+userReadonly.age = "str"
+
+// const dbName = "01"
+let dbName: string
+sendUserData(user, "str")
+
+console.log(dbName!)
 
 function sendUserData(obj: User, db?: string): void {
-	console.log(obj.parents?.father?.charAt(0), db?.toLowerCase())
+	// console.log(obj.parents?.father?.charAt(0), db?.toLowerCase())
+	console.log(obj.parents!.father?.charAt(0), db!.toLowerCase())
 }
+
+class Animal {
+	readonly name: string = "animalName"
+}
+
+/* 
+const basicPorts: readonly number[] = [3000, 3001, 5000]
+basicPorts[0] = 5
+basicPorts.push(555)
+ */
+
+// const basicPorts: readonly [number, ...string[]] = [3000, "3001", "5000"]
+const basicPorts: ReadonlyArray<number> = [3000, 3001, 5000]
+basicPorts[0] = 5
+basicPorts.push(555)
