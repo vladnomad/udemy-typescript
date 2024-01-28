@@ -1,42 +1,107 @@
-const fetchData = (url: string, method: "GET" | "POST"): void => {
-	console.log("Fetched!")
+/*
+let num: Number = new Number(5)
+let num2: number = 5
+let num3 = Number(5)
+
+num = num2
+num2 = num  // error 
+*/
+
+const num: number = 5
+const strToNum: string = num.toString()
+
+const str: string = "5"
+const numToStr: number = +str
+
+
+interface Department {
+	name: string;
+	budget: number;
 }
 
-const reqOptions = {
-	url: "https://someurl.com",
-	method: "GET" as const
-// } as const
+const department = {
+	name: "web-dev",
+	budget: 5000
 }
 
-// fetchData("qqq", "GET")
-fetchData(reqOptions.url, reqOptions.method)
-
+interface Project {
+	name: string,
+	projectBudget: number
+}
 /* 
-const reqOptions = {
-	url: "https://someurl.com",
-	method: "GET"
+const mainProject: Project = {
+	...department,
+	projectBudget: 7500
 }
-fetchData(reqOptions.url, <"GET">reqOptions.method)
  */
 
-const box = document.querySelector(".box") as HTMLElement
-box.style
-box?.classList
+function transformDepartment(department: Department, amount: number): Project {
+	return {
+		name: department.name,
+		projectBudget: amount
+	}
+}
 
-const input = document.querySelector("input") as HTMLInputElement
-// const input = <HTMLInputElement>document.querySelector("input")
-const num: number = +input.value
-// const num: number = input.value as any as number
-console.log(num)
+const mainProject: Project = transformDepartment(department, 4000)
 
-let a = "value" as const
-let b = {f: 100} as const
-let c = [] as const
 
-let value = "value"
-let arr = ["arr1", "arr2"]
-let obj = {g: 200}
+function printMsg(msg: string[] | number | boolean): void {
+	if (Array.isArray(msg)) {
+		msg.forEach(m => console.log(m))
+	} else if (isNumber(msg)) {
+		console.log(msg.toFixed())
+	} else {
+		console.log(`msg is not ${!msg}`)
+	}
+	console.log(msg)
+}
 
-// let T0 = value as const
+printMsg(4)
 
-// let aa = (Math.round(Math.random() * 1) ? "yes" : "no") as const
+// const box = document.querySelector(".box")
+// box?.addEventListener("click", () => {})
+
+/* 
+function isNumber(n: string[] | number | boolean): n is number {
+	return typeof n === "number"
+}
+ */
+
+function isNumber(n: unknown): n is number {
+	return typeof n === "number"
+}
+
+interface Car {
+	engine: string;
+	wheels: {
+		width: number;
+		profile: number;
+		diameter: number;
+	};
+}
+
+interface Ship {
+	engine: string;
+	sail: string;
+}
+
+function repairVehicle(vehicle: Car | Ship): void {
+	if (isCar(vehicle)) {
+		console.log(vehicle.wheels)
+	} else if (isShip(vehicle)) {
+		console.log(vehicle.sail)
+	} else {
+		console.log(vehicle)
+	}
+}
+
+function isCar(car: Car | Ship): car is Car {
+	// return "wheels" in car
+	return (car as Car).wheels.diameter !== undefined
+}
+
+
+function isShip(ship: Car | Ship): ship is Ship {
+	// return "wheels" in car
+	return (ship as Ship).sail !== undefined
+}
