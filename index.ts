@@ -55,3 +55,43 @@ function printReport(data: ITotalWarehouse): string {
 }
 
 console.log(printReport(totalData))
+
+
+let s: number
+s = 500
+
+interface UserData {
+	isA: boolean;
+	b: number;
+	c: string;
+}
+
+const userData = "{'isA': true, 'b': 40, 'c': 'Q'}"
+
+const userObj = JSON.parse(userData)  
+
+
+interface User {
+	login: string;
+	password: string;
+	age: number;
+	// address?: string;
+	address: string | undefined;
+	parents?: {
+		mother?: string;
+		father?: string;
+	}
+}
+
+const user: User = {
+	login: "",
+	password: "",
+	age: 0,
+	address: ""
+}
+
+const dbName = "01"
+
+function sendUserData(obj: User, db?: string): void {
+	console.log(obj.parents?.father?.charAt(0), db?.toLowerCase())
+}
