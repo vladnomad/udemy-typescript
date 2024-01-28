@@ -42,7 +42,7 @@ type Module = {
 /**
  * Roman numerals enumeration.
  */
-enum RomanNumeral {
+enum RomanNumerals {
     I = "i",
     II = "ii",
     III = "iii",
@@ -129,22 +129,22 @@ const isValidLecture = (lecture: number, module: Module): boolean => {
 const main = async () => {
     try {
         const modules: Readonly<{ [key: string]: Module }> = {
-            [RomanNumeral.I]: {
+            [RomanNumerals.I]: {
                 label: "I. Foundations",
                 start: 5,
                 finish: 44
             },
-            [RomanNumeral.II]: {
+            [RomanNumerals.II]: {
                 label: "II. Generics & type manipulations",
                 start: 45,
                 finish: 65
             },
-            [RomanNumeral.III]: {
+            [RomanNumerals.III]: {
                 label: "III. Classes",
                 start: 66,
                 finish: 79
             },
-            [RomanNumeral.IV]: {
+            [RomanNumerals.IV]: {
                 label: "IV. Decorators & configuration",
                 start: 80,
                 finish: 100
@@ -167,7 +167,7 @@ const main = async () => {
             process.exit(1)
         }
 
-        const moduleKey = moduleArgument.toLowerCase() as RomanNumeral
+        const moduleKey = moduleArgument.toLowerCase() as RomanNumerals
 
         let module: Module
 
