@@ -15,7 +15,7 @@ courseDetails {
 ```
 This course, authored by Ivan Petrichenko, offers an in-depth exploration of TypeScript, coupled with practical applications. Throughout the course, each theoretical concept is followed by a hands-on test or practice task, fostering interactive web development skills. The curriculum is divided into four main modules:
 
-### ![85%](https://geps.dev/progress/85) I. Foundations 
+### ![90%](https://geps.dev/progress/90) I. Foundations 
 
 ### ![0%](https://geps.dev/progress/0) II. Generics & type manipulations
 
