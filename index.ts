@@ -1,34 +1,44 @@
-interface Square {
-	side: number;
-	area: number;
-}
-
-interface Rectangle {
-	a: number;
-	b: number;
-	area: number;
-}
-
-function calcShapeArea(side: number): Square
-function calcShapeArea(a: number, b: number): Rectangle
-function calcShapeArea(a: number, b?: number): Square | Rectangle {
-	if (b) {
-		const rectangle: Rectangle = { 
-			a, 
-			b, 
-			area: a* b 
-		}
-
-		return rectangle
-	} else {
-		const square: Square = { 
-			side: a, 
-			area: a * a 
-		}
-		
-		return square
+interface AnimalAvailable {
+	status: "available";
+	data: {
+		animal: "cat" | "dog" | "bird";
+		breed: string;
+		sterilized?: string;
+		location: string;
+		age?: number;
 	}
 }
 
-calcShapeArea(1)
-calcShapeArea(1, 2)
+interface AnimalNotAvailable {
+	status: "not available";
+	data: {
+		message: string;
+		nextUpdateIn: Date;
+	}
+}
+
+type Animal = AnimalAvailable | AnimalNotAvailable
+
+const animal: Animal = {
+	status: "available",
+	data: {
+		animal: "cat",
+		breed: "bengal",
+		sterilized: "Not sterilized",
+		location: "Iowa"
+	}
+}
+
+function isAvailable(animal: Animal): animal is AnimalAvailable {
+	return (animal as AnimalAvailable).data.location !== undefined
+}
+
+function checkAnimalData(animal: Animal): string | AnimalAvailable["data"] {
+	if (isAvailable(animal)) {
+		return animal.data
+	} else {
+		return `${animal.data.message}, you can try in ${animal.data.nextUpdateIn}`
+	}
+}
+
+console.log(checkAnimalData(animal))
