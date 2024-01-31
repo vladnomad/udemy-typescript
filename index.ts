@@ -1,41 +1,28 @@
-interface FormsData {
+interface IFormData {
 	email: string;
 	title: string;
 	text: string;
 	checkbox: boolean;
 }
 
-// Последовательность действий:
-// 1) Происходит submit любой из форм
-// 2) Все данные из 4х полей со страницы переходят в свойства объекта formData
-// 3) Запускается функция validateFormData с этим объектом, возвращает true/false
-// 4) Если на предыдущем этапе true, то запускается функция checkFormData с этим объектом
+function validateFormData(formData: IFormData): boolean {
+	const formFilled = Object.values(formData).every((value) => (typeof value === "boolean" ? value : value !== ""))
 
-function validateFormData(formsData: FormsData) {
-	const formFilled = Object.entries(formsData).every(([key, value]) => {
-		if (key === "checkbox") {
-		  return value
-		}
-		return value !== ""
-	  })
-	
-	  if (formFilled) {
-		return true
-	  } else {
+	if (!formFilled) {
 		console.log("Please complete all fields")
-		return false
-	  }
+	}
+
+	return formFilled
 }
 
-function checkFormData(formsData: FormsData) {
-	const { email } = formsData
+function checkFormData(formData: IFormData): void {
 	const emails = ["example@gmail.com", "example@ex.com", "admin@gmail.com"]
 
-	// Если email совпадает хотя бы с одним из массива
-	if ("condition") {
+	if (emails.includes(formData.email)) {
 		console.log("This email is already exist")
 	} else {
 		console.log("Posting data...")
+		console.log(formData)
 	}
 }
 
@@ -43,35 +30,26 @@ const inputs: NodeListOf<HTMLInputElement | HTMLTextAreaElement> = document.quer
 
 const handleSubmit = (e: Event) => {
 	e.preventDefault()
-	console.log("submit")
 
-	let formsData: FormsData = {
+	const formData: IFormData = {
 		email: "",
 		title: "",
 		text: "",
-		checkbox: false
+		checkbox: false,
 	}
 
-	console.log(formsData)
-
-	inputs.forEach(input => {
-		const inputId = input.id as keyof FormsData;
-
-		// Use type assertions based on the input type
-		if (input.type === "checkbox") {
-		  formsData[inputId] = (input as HTMLInputElement).checked;
-		} else {
-		  formsData[inputId] = (input as HTMLInputElement | HTMLTextAreaElement).value;
-		}
+	inputs.forEach((input) => {
+		const inputId = input.id as keyof IFormData
+		(formData[inputId] as boolean | string) = input.type === "checkbox" ? (input as HTMLInputElement).checked : (input as HTMLInputElement | HTMLTextAreaElement).value
 	})
 
-	console.log(formsData)
-	
-	if (validateFormData(formsData)) checkFormData(formsData)
+	if (validateFormData(formData)) {
+		checkFormData(formData)
+	}
 }
 
 const submitBtns: NodeListOf<HTMLButtonElement> = document.querySelectorAll("button[type='submit']")
-console.log(submitBtns)
-submitBtns.forEach(submit => {
+
+submitBtns.forEach((submit) => {
 	submit?.addEventListener("click", handleSubmit)
 })
