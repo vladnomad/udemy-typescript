@@ -1,0 +1,58 @@
+// @ts-nocheck
+type Empty = "empty"
+type NumOrEmpty = number | Empty
+
+const empty: Empty = "empty"
+
+interface IClothesWarehouse {
+	jackets: NumOrEmpty;
+	hats: NumOrEmpty;
+	socks: NumOrEmpty;
+	pants: NumOrEmpty;
+}
+
+interface IStationeryWarehouse {
+	scissors: NumOrEmpty;
+	paper: boolean | Empty;
+}
+
+interface IAppliancesWarehouse {
+	dishwashers: NumOrEmpty;
+	stoves: NumOrEmpty;
+	mixers: NumOrEmpty;
+}
+
+interface ITotalWarehouse extends IClothesWarehouse, IStationeryWarehouse, IAppliancesWarehouse {}
+
+interface ITotalWarehouse {
+	deficit: boolean;
+	date: Date;
+}
+
+const totalData = {
+	jackets: 5,
+	hats: empty,
+	socks: empty,
+	pants: 15,
+	scissors: empty,
+	paper: true,
+	dishwashers: 3,
+	stoves: empty,
+	mixers: 14,
+	deficit: true,
+	date: new Date
+}
+
+function printReport(data: ITotalWarehouse): string {
+	const emptyItems = Object.entries(data)
+		.filter(([, value]) => value === empty)
+		.map(([key]) => key)
+
+	if (emptyItems.length > 0) {
+		return `We need these items: ${emptyItems.join(", ")}`
+	}
+	
+	return `Everything is fine - ${emptyItems}`
+}
+
+console.log(printReport(totalData))

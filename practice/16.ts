@@ -1,3 +1,4 @@
+// @ts-nocheck
 let userBillsData = {
     elData: {
         readings: 95,

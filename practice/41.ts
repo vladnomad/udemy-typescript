@@ -1,3 +1,4 @@
+// @ts-nocheck
 interface AnimalAvailable {
 	status: "available";
 	data: {
