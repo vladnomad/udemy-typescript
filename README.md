@@ -4,8 +4,8 @@
 courseDetails {
     author: Ivan Petrichenko,
     rating: 4.8,    
-    ratingCount: 670,
-    students: 2 827,
+    ratingCount: 686,
+    students: 2 856,
     tests: 1,
     tasks: 14,
     lectures: 100,
@@ -37,7 +37,7 @@ async function exploreCourse(): Promise<[Foundations, AdvancedTechniques, RealWo
 
         return [foundations, advancedTechniques, realWorldProjects]
     } catch (error) {
-        throw new Error(`Error: Grasp of TypeScript foundations before advancing further`)
+        throw new Error("Error: Grasp of TypeScript foundations before advancing further")
     }
 }
 
@@ -53,13 +53,13 @@ const realWorldProjects: Array<ProjectType> = [
 function implementProject(project: ProjectType): string {
     switch (project) {
         case "Large-Scale Apps":
-            return `Implementing scalable TypeScript architecture for high-traffic apps.`
+            return "Implementing scalable TypeScript architecture for high-traffic apps."
         case "Team Collaborations":
-            return `Utilizing TypeScript interfaces for effective team collaboration.`
+            return "Utilizing TypeScript interfaces for effective team collaboration."
         case "Complex Functionalities":
-            return `Managing complex business logic with TypeScript's advanced type system.`
+            return "Managing complex business logic with TypeScript's advanced type system."
         default:
-            return `Exploring innovative TypeScript applications.`
+            return "Exploring innovative TypeScript applications."
     }
 }
 
