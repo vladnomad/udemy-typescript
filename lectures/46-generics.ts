@@ -11,17 +11,17 @@ let res2 = processingData("1")
 const num = "10"
 
 const res3  = processingData<number>(num)
-
+/* 
 interface PrintUK {
-	design: number
+	design: number;
 }
 
 interface PrintES {
-	design: string
+	design: string;
 }
-
+ */
 interface Print<T> {
-	design: T
+	design: T;
 }
 
 const somePrint: Print<string> = {
@@ -36,4 +36,7 @@ Array<T>
 
 RefferalSystem<UserID, UserReferral>
 
-// T  U  V  S  P  K/V
+// T - type
+// U  V  S  
+// P - property 
+// K/V - key/value
