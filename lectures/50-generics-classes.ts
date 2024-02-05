@@ -1,3 +1,4 @@
+//@ts-nocheck
 class User<T, S> {
     name: T;
     age: S;
