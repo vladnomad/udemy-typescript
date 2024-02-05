@@ -1,5 +1,4 @@
 //@ts-nocheck
-
 interface IProcessing {
     <T>(data: T): T;
 }

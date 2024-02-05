@@ -1,7 +1,5 @@
 //@ts-nocheck
-
 // function processingData<T, S>(data: T, options: S): string {
-    
 function processingData<T, S>(data: T[], options: S): string {
     data.length
 	switch (typeof data) {
