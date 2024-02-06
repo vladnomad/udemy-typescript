@@ -2,7 +2,7 @@
 
 ```javascript
 courseDetails {
-    author: Ivan Petrichenko,
+    author: "Ivan Petrichenko",
     rating: 4.8,    
     ratingCount: 686,
     students: 2 856,
@@ -10,7 +10,7 @@ courseDetails {
     tasks: 14,
     lectures: 100,
     videoHoursTotal: 21
-    lastUpdate: 06.2023
+    lastUpdate: "06.2023"
 }
 ```
 This course, authored by Ivan Petrichenko, offers an in-depth exploration of TypeScript, coupled with practical applications. Throughout the course, each theoretical concept is followed by a hands-on test or practice task, fostering interactive web development skills. The curriculum is divided into four main modules:
