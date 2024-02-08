@@ -17,7 +17,7 @@ This course, authored by Ivan Petrichenko, offers an in-depth exploration of Typ
 
 ### ![100%](https://geps.dev/progress/100) I. Foundations 
 
-### ![60%](https://geps.dev/progress/60) II. Generics & type manipulations
+### ![65%](https://geps.dev/progress/65) II. Generics & type manipulations
 
 ### ![0%](https://geps.dev/progress/0) III. Classes
 

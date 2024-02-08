@@ -1,3 +1,4 @@
+//@ts-nocheck
 interface ICompany {
     name: string;
     obligations: number;
