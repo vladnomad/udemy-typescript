@@ -1,3 +1,4 @@
+//@ts-nocheck
 type Currencies = {
     usa: "usd";
     poland: "pln";
@@ -5,7 +6,7 @@ type Currencies = {
     uk: "gbp";
 }
 
-type CreateCustomCurr<T> = {
+type CreateCustomCurrencies<T> = {
     [P in keyof T]: string
     // readonly [P in keyof T]: string
     // readonly [P in keyof T]?: string   --optional
@@ -13,7 +14,7 @@ type CreateCustomCurr<T> = {
     // -readonly [P in keyof T]-?: string   --remove readonly & optional
 }
 
-type CustomCurrencies = CreateCustomCurr<Currencies>
+type CustomCurrencies = CreateCustomCurrencies<Currencies>
 
 type ROnlyCurr = Readonly<Currencies>
 /* 
