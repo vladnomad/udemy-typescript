@@ -1,4 +1,5 @@
 //@ts-nocheck
+/* 
 type Curr = {
     usa: "usd";
     poland: "pln";
@@ -17,3 +18,4 @@ type TAnimation = "fade" | "swipe"
 type Direction = "in" | "out"
 
 type NewTAnimation = `${TAnimation}${Capitalize<Direction>}`
+ */
