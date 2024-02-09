@@ -10,7 +10,7 @@ type CreateCustomCurrencies<T> = {
     [P in keyof T]: string
     // readonly [P in keyof T]: string
     // readonly [P in keyof T]?: string   --optional
-    // +readonly [P in keyof T]+?: string   --remove readonly & optional
+    // +readonly [P in keyof T]+?: string   --add readonly & optional
     // -readonly [P in keyof T]-?: string   --remove readonly & optional
 }
 
