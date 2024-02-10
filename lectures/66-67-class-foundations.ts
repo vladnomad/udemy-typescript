@@ -1,3 +1,4 @@
+//@ts-nocheck
 class Box {
     // width!: number;
     width: number;
@@ -10,4 +11,15 @@ class Box {
 }
 
 const firstBox = new Box(250)
+
 console.log(firstBox)
+
+class User {
+    name: string;
+}
+
+const jane = new User()
+
+jane.name = "Jane"
+
+console.log(jane)

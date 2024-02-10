@@ -5,7 +5,9 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "strictPropertyInitialization": false,
     "skipLibCheck": true,
   },
-  "exclude": ["node_modules", "lectures", "practice"]
+  "files": ["index.ts"],
+  "exclude": ["node_modules", "lectures", "practice"],
 }
