@@ -1,11 +1,11 @@
 # [Modern TypeScript](https://www.udemy.com/course/modern_typescript/) :star::star::star::star::star:
 
 ```javascript
-courseDetails {
+const courseDetails = {
     author: "Ivan Petrichenko",
     rating: 4.8,    
     ratingCount: 686,
-    students: 2 856,
+    students: 2856,
     tests: 1,
     tasks: 14,
     lectures: 100,
@@ -19,7 +19,7 @@ This course, authored by Ivan Petrichenko, offers an in-depth exploration of Typ
 
 ### ![100%](https://geps.dev/progress/100) II. Generics & type manipulations
 
-### ![20%](https://geps.dev/progress/20) III. Classes
+### ![25%](https://geps.dev/progress/25) III. Classes
 
 ### ![0%](https://geps.dev/progress/0) IV. Decorators & configuration
 

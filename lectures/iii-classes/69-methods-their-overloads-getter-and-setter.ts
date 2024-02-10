@@ -1,3 +1,4 @@
+//@ts-nocheck
 class BoxClass {
     width: number;
     height: number;
