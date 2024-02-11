@@ -1,3 +1,4 @@
+//@ts-nocheck
 enum TransferStatus {
     TIMEOUT = "TIMEOUT",
 	REJECTED = "REJECTED",
