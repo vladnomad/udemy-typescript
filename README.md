@@ -9,7 +9,7 @@ const courseDetails = {
     tests: 1,
     tasks: 14,
     lectures: 100,
-    videoHoursTotal: 21
+    videoHoursTotal: 21,
     lastUpdate: "06.2023"
 }
 ```
@@ -19,7 +19,7 @@ This course, authored by Ivan Petrichenko, offers an in-depth exploration of Typ
 
 ### ![100%](https://geps.dev/progress/100) II. Generics & type manipulations
 
-### ![25%](https://geps.dev/progress/25) III. Classes
+### ![35%](https://geps.dev/progress/35) III. Classes
 
 ### ![0%](https://geps.dev/progress/0) IV. Decorators & configuration
 
