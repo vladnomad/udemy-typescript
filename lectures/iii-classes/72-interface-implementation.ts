@@ -1,6 +1,8 @@
+//@ts-nocheck
 interface IUser {
     login: string;
     password: string;
+    token?: number;
 }
 
 interface IValidation {
@@ -17,3 +19,5 @@ class UserForm implements IUser, IValidation {
         return login.length > 3
     }
 }
+
+// new UserForm().
