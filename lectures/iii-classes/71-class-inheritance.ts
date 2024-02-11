@@ -1,3 +1,4 @@
+//@ts-nocheck
 class BxClass {
     width: number;
     height: number = 50;
@@ -39,9 +40,7 @@ class BxClass {
  */
     async contentAsync(value: string) {
         const date = await new Date().toTimeString()
-        
         this._content = `Date: ${date}, Content: ${value}`
-
         console.log(this._content)
         /* return this._content */
     }
@@ -57,17 +56,11 @@ class PresentBxClass extends BxClass {
         this.width = width
     }
 
-    override async contentAsync(value: string, text?: string) {
+    async contentAsync(value: string, text?: string) {
         const date = await new Date().toTimeString()
-
-        if (!text) {
-            super.contentAsync(value)
-        } else {
-            this._content = `Date: ${date}, Content: ${value}, Text: ${
-                text ? text : "No text"
-            }`
-        }
-
+        this._content = `Date: ${date}, Content: ${value}, Text: ${
+            text ? text : "No text"
+        }`
         console.log(this._content)
         /* return this._content */
     }
