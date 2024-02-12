@@ -1,3 +1,4 @@
+//@ts-nocheck
 function setName() {
     return "Anno 1800"
 }
