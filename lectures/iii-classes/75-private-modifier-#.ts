@@ -1,5 +1,5 @@
 //@ts-nocheck
-class Player {
+class Player1 {
     #login: string;
     private _password: string;
     public server: string;
@@ -15,7 +15,7 @@ class Player {
     }
 }
 
-class CompetetivePlayer extends Player {
+class CompetetivePlayer1 extends Player1 {
     rank: number;
 
     private setConsent() {
@@ -23,8 +23,8 @@ class CompetetivePlayer extends Player {
     }
 }
 
-const test = new Player()
+const test1 = new Player1()
 // test.#login
 
-const player = new CompetetivePlayer()
+const player1 = new CompetetivePlayer1()
 // player._password = "newPassword"
