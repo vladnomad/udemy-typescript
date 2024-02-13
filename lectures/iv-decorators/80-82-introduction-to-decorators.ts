@@ -1,3 +1,4 @@
+//@ts-nocheck
 const myCar = {
     fuel: "50%",
     open: true,
