@@ -1,3 +1,4 @@
+//@ts-nocheck
 interface ICar {
     fuel: string;
     open: boolean;
