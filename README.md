@@ -21,7 +21,7 @@ This course, authored by Ivan Petrichenko, offers an in-depth exploration of Typ
 
 ### ![100%](https://geps.dev/progress/100) III. Classes
 
-### ![95%](https://geps.dev/progress/95) IV. Decorators & configuration
+### ![100%](https://geps.dev/progress/100) IV. Decorators & configuration
 
 ## What the Course Covers
 
