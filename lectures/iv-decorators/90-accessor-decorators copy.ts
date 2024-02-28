@@ -55,7 +55,7 @@ function log(
     const getter = descriptor.get 
 
     descriptor.set = function (this: any, ...args: any) {
-        console.log(`Changing value to ${[...args]}`)
+        console.log(`Changing value by ${[...args]}`)
         return setter?.apply(this, args)
     }
     
