@@ -1,15 +1,17 @@
 {
   "compilerOptions": {
     "target": "es2022",
+    "module": "commonjs",
+
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "module": "commonjs",
+    "strictPropertyInitialization": false,
+    "useDefineForClassFields": true,
+    
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "strictPropertyInitialization": false,
     "skipLibCheck": true,
-    "useDefineForClassFields": false,
   },
   "files": ["index.ts"],
   "exclude": ["node_modules", "lectures", "practice"],
