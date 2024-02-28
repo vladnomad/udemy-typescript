@@ -28,7 +28,7 @@ function checkFuelLevel<T, A extends any[], R>(
         return target.apply(this, args)
     }
 }
-
+/* 
 function checkFuelLevel<T, A extends any[], R>(
     target: (this: T, ...args: A) => R,
     context: ClassMethodDecoratorContext<T, (this: T, ...args: A) => R>
@@ -38,7 +38,7 @@ function checkFuelLevel<T, A extends any[], R>(
 
         return target.apply(this, args)
     }
-}
+} */
 
 function toggleLockStatus(status: boolean) {
     return <T extends { new (...args: any[]): {} }>(
