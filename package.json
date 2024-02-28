@@ -5,6 +5,7 @@
     "scripts": {},
     "devDependencies": {
         "@types/node": "^20.11.7",
+        "reflect-metadata": "^0.2.1",
         "tsx": "^4.7.0"
     },
     "dependencies": {
