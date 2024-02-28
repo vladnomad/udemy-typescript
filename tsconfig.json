@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2022",
-    "experimentalDecorators": true,
+    "experimentalDecorators": false,
     "module": "commonjs",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
