@@ -1,19 +1,38 @@
+//@ts-nocheck
 interface ICar {
     fuel: string;
     lockStatus: boolean;
-    freeSpace: number;
+    freeSeats: number;
 }
 
 @toggleLockStatus(false)
 @changeFuelLevel(95)
 class Car implements ICar {
     fuel: string = "50%";
-    lockStatus: boolean;
-    freeSpace: number;
+    lockStatus: boolean = true;
+    freeSeats: number;
 
-    isLocked() {
-        return this.lockStatus ? "Locked": "Unlocked"
+    @checkFuelLevel
+    isLocked(value: string) {
+        return this.lockStatus ? `Locked ${value}`: "Unlocked"
     }
+}
+
+function checkFuelLevel(
+    target: Object,
+    propertyKey: string | symbol,
+    descriptor: PropertyDescriptor
+): PropertyDescriptor | void {
+    // descriptor.enumerable = false
+
+    const oldValue = descriptor.value
+    
+    descriptor.value = function(this: any, ...args: any[]) {
+        console.log(this.fuel)
+        return oldValue.apply(this, args)
+    }
+
+    return descriptor
 }
 
 function toggleLockStatus(status: boolean) {
@@ -57,4 +76,4 @@ function changeFuelLevel(level: number) {
 
 */
 const car = new Car()
-console.log(car.isLocked())
+console.log(car.isLocked("5 minutes ago"))
